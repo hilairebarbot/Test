@@ -1,3 +1,5 @@
+<p style="font-family: 'Times New Roman', serif;">
+  
 # Mémoire – Hilaire Barbot
 
 ## 📘 Présentation
@@ -29,3 +31,5 @@ Ce travail est publié sous licence Creative Commons Attribution-NonCommercial-N
 ## 🌐 Accès au mémoire
 
 Le mémoire peut être consulté directement en ligne depuis ce dépôt.
+
+</p>
