@@ -1,4 +1,3 @@
-<p style="font-family: 'Times New Roman', serif;">
   
 # Mémoire – Hilaire Barbot
 
@@ -32,4 +31,3 @@ Ce travail est publié sous licence Creative Commons Attribution-NonCommercial-N
 
 Le mémoire peut être consulté directement en ligne depuis ce dépôt.
 
-</p>
