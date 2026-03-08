@@ -3,112 +3,98 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Veille – Hilaire Barbot</title>
+<title>Hilaire Barbot – Portfolio</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --navy: #060b2e; --accent: #4f8ef7; --accent2: #a78bfa;
-    --glass: rgba(255,255,255,0.04); --glass-border: rgba(255,255,255,0.08);
-    --text: #e8eaf0; --muted: rgba(232,234,240,0.55);
+    --navy: #060b2e;
+    --accent: #4f8ef7;
+    --accent2: #a78bfa;
+    --glass: rgba(255,255,255,0.04);
+    --glass-border: rgba(255,255,255,0.08);
+    --text: #e8eaf0;
+    --muted: rgba(232,234,240,0.55);
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
   body { font-family: 'DM Sans', sans-serif; background: var(--navy); color: var(--text); overflow-x: hidden; }
-
-  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 18px 7vw; display: flex; justify-content: space-between; align-items: center; backdrop-filter: blur(16px); background: rgba(6,11,46,0.75); border-bottom: 1px solid var(--glass-border); }
-  .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 400; color: white; text-decoration: none; transition: opacity 0.2s, letter-spacing 0.3s; }
-  .nav-logo:hover { opacity: 0.75; letter-spacing: 0.1em; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 18px 7vw; display: flex; justify-content: space-between; align-items: center; backdrop-filter: blur(16px); background: rgba(6,11,46,0.65); border-bottom: 1px solid var(--glass-border); }
+  .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 400; letter-spacing: 0.05em; color: white; text-decoration: none; transition: opacity 0.2s, letter-spacing 0.3s; }
+  .nav-logo:hover { opacity: 0.75; letter-spacing: 0.12em; }
   .nav-links { display: flex; gap: 32px; list-style: none; }
-  .nav-links a { font-size: 13px; color: var(--muted); text-decoration: none; letter-spacing: 0.05em; transition: color 0.2s; position: relative; }
-  .nav-links a::after { content: ''; position: absolute; bottom: -3px; left: 0; width: 0; height: 1px; background: var(--accent); transition: width 0.3s; }
-  .nav-links a:hover { color: white; }
+  .nav-links a { font-size: 13px; font-weight: 400; color: var(--muted); text-decoration: none; letter-spacing: 0.05em; transition: color 0.2s, letter-spacing 0.3s; position: relative; }
+  .nav-links a::after { content: ''; position: absolute; bottom: -3px; left: 0; width: 0; height: 1px; background: var(--accent); transition: width 0.3s ease; }
+  .nav-links a:hover { color: white; letter-spacing: 0.08em; }
   .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
   .nav-links a.active { color: white; }
-
-  .page-header { padding: 160px 7vw 80px; border-bottom: 1px solid var(--glass-border); position: relative; overflow: hidden; }
-  .page-header::before { content: ''; position: absolute; bottom: -20%; right: 0%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(167,139,250,0.06) 0%, transparent 70%); pointer-events: none; }
-  .eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; opacity: 0; animation: fadeUp 0.7s ease 0.1s forwards; }
-  .page-header h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 5vw, 68px); font-weight: 300; line-height: 1.15; max-width: 700px; margin-bottom: 24px; opacity: 0; animation: fadeUp 0.7s ease 0.25s forwards; }
-  .page-header h1 em { font-style: italic; color: var(--accent2); }
-  .page-header .lead { font-size: 16px; color: var(--muted); line-height: 1.8; max-width: 580px; opacity: 0; animation: fadeUp 0.7s ease 0.4s forwards; }
-
-  main { padding: 0 7vw; }
-  section { padding: 72px 0; border-top: 1px solid var(--glass-border); }
-  .section-label { font-size: 11px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 24px; }
-  .section-title { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 300; margin-bottom: 12px; }
-
-  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 4px; font-size: 13px; font-weight: 500; font-family: 'DM Sans', sans-serif; cursor: pointer; text-decoration: none; transition: all 0.25s; border: none; position: relative; overflow: hidden; }
-  .btn::after { content: ''; position: absolute; inset: 0; background: linear-gradient(120deg, transparent, rgba(255,255,255,0.15), transparent); transform: translateX(-100%); transition: transform 0.45s; }
+  header { position: relative; min-height: 55vh; display: flex; flex-direction: column; justify-content: flex-end; padding: 0 7vw 60px; overflow: hidden; }
+  header::before { content: ''; position: absolute; inset: 0; background-image: url('BB.jpeg'); background-size: cover; background-position: center center; background-repeat: no-repeat; filter: brightness(0.6) saturate(1.15); z-index: 0; }
+  header::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 30%, rgba(6,11,46,0.5) 60%, var(--navy) 100%); z-index: 1; }
+  .header-content { position: relative; z-index: 2; max-width: 780px; }
+  .header-eyebrow { font-size: 12px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; opacity: 0; animation: fadeUp 0.8s ease 0.2s forwards; }
+  header h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(42px, 6vw, 80px); font-weight: 300; line-height: 1.1; letter-spacing: -0.01em; margin-bottom: 24px; opacity: 0; animation: fadeUp 0.8s ease 0.4s forwards; }
+  header h1 em { font-style: italic; color: var(--accent); }
+  header .subtitle { font-size: 16px; font-weight: 300; color: var(--muted); max-width: 520px; line-height: 1.7; margin-bottom: 36px; opacity: 0; animation: fadeUp 0.8s ease 0.6s forwards; }
+  .header-actions { display: flex; gap: 14px; flex-wrap: wrap; opacity: 0; animation: fadeUp 0.8s ease 0.8s forwards; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 28px; border-radius: 4px; font-size: 14px; font-weight: 500; font-family: 'DM Sans', sans-serif; cursor: pointer; text-decoration: none; transition: all 0.25s ease; border: none; position: relative; overflow: hidden; }
+  .btn::after { content: ''; position: absolute; inset: 0; background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.18) 50%, transparent 100%); transform: translateX(-100%); transition: transform 0.45s ease; }
   .btn:hover::after { transform: translateX(100%); }
-  .btn-ghost { background: var(--glass); color: var(--text); border: 1px solid var(--glass-border); }
-  .btn-ghost:hover { background: rgba(255,255,255,0.08); transform: translateY(-2px); }
-
-  /* FILTRES */
-  .filters { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 40px; }
-  .filter-btn { padding: 7px 18px; border-radius: 100px; border: 1px solid var(--glass-border); background: var(--glass); color: var(--muted); font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; transition: all 0.25s; font-family: 'DM Sans', sans-serif; }
-  .filter-btn:hover, .filter-btn.active { border-color: var(--accent); color: var(--accent); background: rgba(79,142,247,0.08); }
-
-  /* ARTICLE HERO (1er article mis en avant) */
-  .article-hero {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    align-items: start;
-    margin-bottom: 48px;
-  }
-  @media (max-width: 800px) { .article-hero { grid-template-columns: 1fr; } }
-  .hero-video { border-radius: 14px; overflow: hidden; border: 1px solid var(--glass-border); aspect-ratio: 16/9; transition: border-color 0.3s, box-shadow 0.3s; }
-  .hero-video:hover { border-color: rgba(79,142,247,0.35); box-shadow: 0 8px 32px rgba(0,0,0,0.3); }
-  .hero-video iframe { width: 100%; height: 100%; border: none; display: block; }
-  .hero-content { display: flex; flex-direction: column; justify-content: center; }
-  .article-date { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
-  .article-category { display: inline-block; font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 12px; border-radius: 100px; border: 1px solid rgba(79,142,247,0.4); color: var(--accent); background: rgba(79,142,247,0.08); margin-bottom: 16px; }
-  .hero-content h2 { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 300; line-height: 1.25; margin-bottom: 16px; }
-  .hero-content p { font-size: 14px; color: var(--muted); line-height: 1.8; margin-bottom: 24px; }
-
-  /* GRILLE D'ARTICLES */
-  .articles-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 24px;
-  }
-
-  .article-card {
-    background: var(--glass);
-    border: 1px solid var(--glass-border);
-    border-radius: 14px;
-    overflow: hidden;
-    transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
-    display: flex;
-    flex-direction: column;
-  }
-  .article-card:hover { border-color: rgba(79,142,247,0.3); transform: translateY(-5px); box-shadow: 0 16px 40px rgba(0,0,0,0.25); }
-
-  .card-video { aspect-ratio: 16/9; background: rgba(0,0,0,0.3); overflow: hidden; }
-  .card-video iframe { width: 100%; height: 100%; border: none; display: block; pointer-events: none; }
-  /* On réactive le pointer events au hover pour permettre de lancer la vidéo */
-  .article-card:hover .card-video iframe { pointer-events: auto; }
-
-  .card-body { padding: 24px; flex: 1; display: flex; flex-direction: column; }
-  .card-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
-  .card-body h3 { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 400; line-height: 1.3; margin-bottom: 10px; }
-  .card-body p { font-size: 13px; color: var(--muted); line-height: 1.7; flex: 1; margin-bottom: 16px; }
-  .card-footer { display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--glass-border); padding-top: 14px; margin-top: auto; }
-  .read-link { font-size: 12px; font-weight: 500; color: var(--accent); text-decoration: none; letter-spacing: 0.05em; transition: gap 0.2s; display: flex; align-items: center; gap: 6px; }
-  .read-link:hover { gap: 10px; }
-
-  /* SOURCES À SUIVRE */
-  .sources-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; margin-top: 32px; }
-  .source-card { background: var(--glass); border: 1px solid var(--glass-border); border-radius: 12px; padding: 20px 24px; text-decoration: none; color: var(--text); transition: all 0.3s; display: flex; align-items: center; gap: 14px; }
-  .source-card:hover { border-color: rgba(79,142,247,0.35); transform: translateY(-3px); color: var(--accent); }
-  .source-icon { font-size: 22px; flex-shrink: 0; }
-  .source-name { font-size: 14px; font-weight: 500; }
-  .source-type { font-size: 11px; color: var(--muted); margin-top: 3px; }
-
+  .btn-primary { background: var(--accent); color: white; }
+  .btn-primary:hover { background: #6aa3ff; transform: translateY(-2px); box-shadow: 0 6px 24px rgba(79,142,247,0.45); }
+  .btn-primary:active { transform: translateY(0); }
+  .btn-ghost { background: var(--glass); color: var(--text); border: 1px solid var(--glass-border); backdrop-filter: blur(10px); }
+  .btn-ghost:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); transform: translateY(-2px); }
+  .btn-ghost:active { transform: translateY(0); }
+  main { padding: 0 7vw; }
+  section { padding: 80px 0; border-top: 1px solid var(--glass-border); }
+  .section-label { font-size: 11px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
+  .entry-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 20px; }
+  .entry-card { background: var(--glass); border: 1px solid var(--glass-border); border-radius: 14px; padding: 32px; text-decoration: none; color: var(--text); display: flex; flex-direction: column; gap: 10px; transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s; }
+  .entry-card:hover { border-color: rgba(79,142,247,0.4); transform: translateY(-5px); box-shadow: 0 16px 40px rgba(0,0,0,0.25); }
+  .entry-icon { font-size: 28px; margin-bottom: 4px; }
+  .entry-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 400; }
+  .entry-card p { font-size: 13px; color: var(--muted); line-height: 1.7; flex: 1; }
+  .entry-link { font-size: 13px; font-weight: 500; color: var(--accent); margin-top: 8px; transition: letter-spacing 0.2s; }
+  .entry-card:hover .entry-link { letter-spacing: 0.03em; }
+  .memoire-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 32px; margin-top: 40px; align-items: start; }
+  @media (max-width: 900px) { .memoire-grid { grid-template-columns: 1fr; } }
+  .memoire-main h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(32px, 4vw, 52px); font-weight: 300; line-height: 1.15; margin-bottom: 20px; }
+  .memoire-main p { font-size: 15px; color: var(--muted); line-height: 1.8; margin-bottom: 28px; max-width: 560px; }
+  .memoire-side { display: flex; flex-direction: column; gap: 16px; }
+  .tag-list { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px; }
+  .tag { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 5px 12px; border-radius: 100px; border: 1px solid var(--glass-border); color: var(--muted); transition: all 0.25s; cursor: default; }
+  .tag:hover { border-color: rgba(79,142,247,0.5); color: var(--accent); background: rgba(79,142,247,0.08); }
+  .stat-box { background: var(--glass); border: 1px solid var(--glass-border); border-radius: 12px; padding: 24px 28px; transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s; cursor: default; }
+  .stat-box:hover { border-color: rgba(79,142,247,0.4); transform: translateX(4px); box-shadow: -4px 0 20px rgba(79,142,247,0.15); }
+  .stat-box:hover .num { color: #7ab4ff; }
+  .stat-box .num { font-family: 'Cormorant Garamond', serif; font-size: 42px; font-weight: 300; color: var(--accent); line-height: 1; margin-bottom: 4px; transition: color 0.3s; }
+  .stat-box .label { font-size: 12px; color: var(--muted); letter-spacing: 0.05em; }
+  .formations-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 40px; }
+  .formation-card { background: var(--glass); border: 1px solid var(--glass-border); border-radius: 12px; padding: 32px; display: flex; flex-direction: column; gap: 16px; transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s; }
+  .formation-card:hover { border-color: rgba(79,142,247,0.35); transform: translateY(-5px); box-shadow: 0 16px 40px rgba(0,0,0,0.3); }
+  .formation-card:hover .school-logo { background: rgba(79,142,247,0.15); border-color: rgba(79,142,247,0.4); transform: rotate(-4deg) scale(1.08); }
+  .school-logo { width: 56px; height: 56px; border-radius: 10px; background: rgba(255,255,255,0.08); border: 1px solid var(--glass-border); display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: var(--accent); overflow: hidden; transition: background 0.3s, border-color 0.3s, transform 0.35s cubic-bezier(.34,1.56,.64,1); }
+  .school-logo img { width: 100%; height: 100%; object-fit: contain; padding: 6px; }
+  .formation-info h3 { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 400; line-height: 1.3; margin-bottom: 4px; }
+  .formation-info .school-name { font-size: 13px; color: var(--accent); font-weight: 500; margin-bottom: 8px; }
+  .formation-info .years { font-size: 12px; color: var(--muted); letter-spacing: 0.05em; }
+  .formation-desc { font-size: 13px; color: var(--muted); line-height: 1.7; border-top: 1px solid var(--glass-border); padding-top: 14px; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 40px; }
+  @media (max-width: 768px) { .two-col { grid-template-columns: 1fr; } }
+  .video-wrap { margin-top: 40px; border-radius: 16px; overflow: hidden; border: 1px solid var(--glass-border); aspect-ratio: 16/9; transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s; }
+  .video-wrap:hover { border-color: rgba(79,142,247,0.3); box-shadow: 0 8px 40px rgba(0,0,0,0.4); transform: scale(1.005); }
+  .video-wrap iframe { width: 100%; height: 100%; border: none; }
+  .links-list { margin-top: 40px; display: flex; flex-direction: column; gap: 2px; }
+  .link-item { display: flex; align-items: center; justify-content: space-between; padding: 20px 8px; border-bottom: 1px solid var(--glass-border); text-decoration: none; color: var(--text); transition: color 0.2s, padding-left 0.3s, background 0.3s; border-radius: 4px; position: relative; }
+  .link-item::before { content: ''; position: absolute; left: 0; top: 50%; transform: translateY(-50%) scaleY(0); width: 2px; height: 60%; background: var(--accent); border-radius: 2px; transition: transform 0.25s ease; }
+  .link-item:hover { color: var(--accent); padding-left: 16px; background: rgba(79,142,247,0.04); }
+  .link-item:hover::before { transform: translateY(-50%) scaleY(1); }
+  .link-item:hover .link-arrow { transform: translateX(6px); color: var(--accent); }
+  .link-title { font-size: 15px; }
+  .link-arrow { font-size: 18px; transition: transform 0.25s ease, color 0.25s; color: var(--muted); }
   footer { padding: 48px 7vw; border-top: 1px solid var(--glass-border); display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--muted); flex-wrap: wrap; gap: 16px; }
-
-  @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
-  .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
   .reveal.visible { opacity: 1; transform: translateY(0); }
 </style>
 </head>
@@ -117,174 +103,137 @@
 <nav>
   <a href="index.html" class="nav-logo">H. Barbot</a>
   <ul class="nav-links">
-    <li><a href="index.html">Accueil</a></li>
+    <li><a href="index.html" class="active">Accueil</a></li>
     <li><a href="memoire.html">Mémoire</a></li>
     <li><a href="travaux.html">Travaux</a></li>
     <li><a href="parcours.html">Parcours</a></li>
-    <li><a href="veille.html" class="active">Veille</a></li>
+    <li><a href="veille.html">Veille</a></li>
   </ul>
 </nav>
 
-<div class="page-header">
-  <p class="eyebrow">Veille technologique & actualité</p>
-  <h1>Rester à la frontière<br>de <em>l'innovation</em></h1>
-  <p class="lead">Notes de veille, analyses courtes et ressources sélectionnées sur les câbles sous-marins, la cybersécurité, les infrastructures critiques et la géopolitique du numérique.</p>
-</div>
+<header>
+  <div class="header-content">
+    <p class="header-eyebrow">Portfolio académique &amp; recherche</p>
+    <h1>Sécuriser la connaissance,<br><em>partager la recherche.</em></h1>
+    <p class="subtitle">
+      Travaux de recherche sur les câbles sous-marins, études de marché et analyses stratégiques — dans le cadre d'une candidature en alternance chez ASN.
+    </p>
+    <div class="header-actions">
+      <a href="Mémoire Hilaire.pdf" target="_blank" class="btn btn-primary">📄 Lire le mémoire</a>
+      <a href="mailto:hilaire.barbot@email.com" class="btn btn-ghost">📩 Me contacter</a>
+    </div>
+  </div>
+</header>
 
 <main>
 
-  <!-- ARTICLE VEDETTE -->
   <section>
-    <p class="section-label reveal">À la une</p>
-
-    <!-- Filtres thématiques -->
-    <div class="filters reveal">
-      <button class="filter-btn active">Tout</button>
-      <button class="filter-btn">Câbles sous-marins</button>
-      <button class="filter-btn">Cybersécurité</button>
-      <button class="filter-btn">Géopolitique</button>
-      <button class="filter-btn">Tech & Innovation</button>
-      <button class="filter-btn">Régulation</button>
+    <p class="section-label reveal">Par où commencer ?</p>
+    <p style="font-size:15px; color:var(--muted); margin-bottom:36px; max-width:520px;" class="reveal">
+      Selon votre profil, voici la page la plus pertinente pour vous.
+    </p>
+    <div class="entry-grid">
+      <a href="parcours.html" class="entry-card reveal">
+        <div class="entry-icon">👔</div>
+        <h3>Je suis recruteur RH</h3>
+        <p>Consultez mon parcours, mes formations et téléchargez mon CV.</p>
+        <span class="entry-link">Voir le parcours →</span>
+      </a>
+      <a href="memoire.html" class="entry-card reveal">
+        <div class="entry-icon">🔬</div>
+        <h3>Je suis chercheur / expert</h3>
+        <p>Accédez directement au mémoire complet et aux sources académiques.</p>
+        <span class="entry-link">Lire le mémoire →</span>
+      </a>
+      <a href="veille.html" class="entry-card reveal">
+        <div class="entry-icon">🌊</div>
+        <h3>Je découvre le sujet</h3>
+        <p>Parcourez ma veille et mes notes pour une introduction progressive.</p>
+        <span class="entry-link">Explorer la veille →</span>
+      </a>
     </div>
+  </section>
 
-    <!-- Article mis en avant avec vidéo -->
-    <div class="article-hero reveal">
-      <div class="hero-video">
-        <!-- Remplacez par une vidéo YouTube liée à votre actualité vedette -->
-        <iframe src="https://www.youtube.com/embed/VOTRE_ID_VEDETTE" allowfullscreen></iframe>
+  <section id="memoire">
+    <p class="section-label reveal">Recherche principale</p>
+    <div class="memoire-grid">
+      <div class="memoire-main reveal">
+        <h2>Les câbles sous-marins : enjeux stratégiques et sécurité des infrastructures</h2>
+        <p>Une analyse approfondie des infrastructures numériques sous-marines, de leur rôle dans la connectivité mondiale et des risques géopolitiques, physiques et cybernétiques qui pèsent sur ces actifs critiques.</p>
+        <div class="tag-list">
+          <span class="tag">Infrastructures critiques</span>
+          <span class="tag">Géopolitique</span>
+          <span class="tag">Cybersécurité</span>
+          <span class="tag">Télécommunications</span>
+          <span class="tag">Risques</span>
+        </div>
+        <div style="display:flex; gap:14px; flex-wrap:wrap;">
+          <a href="Mémoire Hilaire.pdf" target="_blank" class="btn btn-primary">Ouvrir le PDF</a>
+          <a href="memoire.html" class="btn btn-ghost">Voir la page dédiée</a>
+        </div>
       </div>
-      <div class="hero-content">
-        <span class="article-category">Câbles sous-marins</span>
-        <p class="article-date">📅 Mois Année</p>
-        <h2>Titre de votre article ou note de veille vedette</h2>
-        <p>
-          Rédigez ici votre analyse ou note de veille principale. 3 à 5 lignes suffisent : présentez le fait d'actualité, expliquez pourquoi il est important, et donnez votre point de vue analytique. C'est ce qui vous différencie d'un simple agrégateur de liens.
-        </p>
-        <a href="#" class="btn btn-ghost">Lire la source originale →</a>
+      <div class="memoire-side reveal">
+        <div class="stat-box"><div class="num">~80</div><div class="label">pages de recherche</div></div>
+        <div class="stat-box"><div class="num">400+</div><div class="label">câbles sous-marins actifs dans le monde</div></div>
+        <div class="stat-box"><div class="num">99%</div><div class="label">du trafic Internet intercontinental transite par câbles</div></div>
       </div>
     </div>
   </section>
 
-  <!-- GRILLE DE NOTES DE VEILLE -->
-  <section>
-    <p class="section-label reveal">Notes récentes</p>
-    <p style="font-size:14px; color:var(--muted); margin-bottom:36px; max-width:560px;" class="reveal">
-      Sélection d'actualités commentées — chaque note inclut un résumé, une analyse courte et, quand disponible, une vidéo associée.
-    </p>
-
-    <div class="articles-grid">
-
-      <!-- NOTE 1 -->
-      <div class="article-card reveal">
-        <div class="card-video">
-          <!-- Vidéo YouTube liée à cette actu. Si pas de vidéo, supprimez ce bloc -->
-          <iframe src="https://www.youtube.com/embed/VOTRE_ID_NOTE_1" allowfullscreen></iframe>
+  <section id="formations">
+    <p class="section-label reveal">Parcours académique</p>
+    <div class="formations-grid">
+      <div class="formation-card reveal">
+        <div class="school-logo"><!-- <img src="logo_ecole1.png" alt="Logo"> -->EM</div>
+        <div class="formation-info">
+          <h3>Master Stratégie &amp; Sécurité Numérique</h3>
+          <div class="school-name">Nom de l'école 1</div>
+          <div class="years">2023 – 2025</div>
         </div>
-        <div class="card-body">
-          <div class="card-meta">
-            <span class="article-category">Cybersécurité</span>
-            <span class="article-date">Mois Année</span>
-          </div>
-          <h3>Titre de la note de veille n°1</h3>
-          <p>Résumez ici l'actualité en 2 à 3 lignes. Qu'est-ce qui s'est passé ? Pourquoi est-ce notable ? Ajoutez une courte analyse personnelle qui montre votre regard critique.</p>
-          <div class="card-footer">
-            <a href="#" class="read-link">Lire la source <span>→</span></a>
-            <span style="font-size:12px; color:var(--muted);">3 min de lecture</span>
-          </div>
-        </div>
+        <p class="formation-desc">Formation axée sur la cybersécurité, la gestion des risques et la stratégie des systèmes d'information dans un contexte international.</p>
       </div>
-
-      <!-- NOTE 2 -->
-      <div class="article-card reveal">
-        <div class="card-video">
-          <iframe src="https://www.youtube.com/embed/VOTRE_ID_NOTE_2" allowfullscreen></iframe>
+      <div class="formation-card reveal">
+        <div class="school-logo"><!-- <img src="logo_ecole2.png" alt="Logo"> -->UN</div>
+        <div class="formation-info">
+          <h3>Licence Relations Internationales &amp; Numérique</h3>
+          <div class="school-name">Nom de l'université</div>
+          <div class="years">2020 – 2023</div>
         </div>
-        <div class="card-body">
-          <div class="card-meta">
-            <span class="article-category">Géopolitique</span>
-            <span class="article-date">Mois Année</span>
-          </div>
-          <h3>Titre de la note de veille n°2</h3>
-          <p>Même logique : faits, contexte, votre analyse. L'objectif est de montrer que vous lisez activement sur vos sujets et que vous avez un point de vue argumenté.</p>
-          <div class="card-footer">
-            <a href="#" class="read-link">Lire la source <span>→</span></a>
-            <span style="font-size:12px; color:var(--muted);">4 min de lecture</span>
-          </div>
-        </div>
+        <p class="formation-desc">Approche pluridisciplinaire combinant droit international, géopolitique et enjeux technologiques des infrastructures mondiales.</p>
       </div>
-
-      <!-- NOTE 3 -->
-      <div class="article-card reveal">
-        <div class="card-video">
-          <iframe src="https://www.youtube.com/embed/VOTRE_ID_NOTE_3" allowfullscreen></iframe>
+      <div class="formation-card reveal">
+        <div class="school-logo"><!-- <img src="logo_ecole3.png" alt="Logo"> -->EX</div>
+        <div class="formation-info">
+          <h3>Programme d'échange international</h3>
+          <div class="school-name">Nom de l'établissement</div>
+          <div class="years">2022</div>
         </div>
-        <div class="card-body">
-          <div class="card-meta">
-            <span class="article-category">Tech & Innovation</span>
-            <span class="article-date">Mois Année</span>
-          </div>
-          <h3>Titre de la note de veille n°3</h3>
-          <p>Ajoutez ici une note sur une innovation technologique, un rapport récent, ou un événement sectoriel qui vous a marqué. Courts, sourcés, analytiques.</p>
-          <div class="card-footer">
-            <a href="#" class="read-link">Lire la source <span>→</span></a>
-            <span style="font-size:12px; color:var(--muted);">2 min de lecture</span>
-          </div>
-        </div>
+        <p class="formation-desc">Semestre à l'étranger, focus sur la gouvernance d'Internet et les politiques publiques numériques.</p>
       </div>
+    </div>
+    <p style="margin-top:24px; font-size:13px; color:var(--muted);">💡 <em>Remplacez les noms, dates et descriptions par vos vraies formations.</em></p>
+  </section>
 
-      <!-- NOTE 4 -->
-      <div class="article-card reveal">
-        <div class="card-video">
-          <iframe src="https://www.youtube.com/embed/VOTRE_ID_NOTE_4" allowfullscreen></iframe>
-        </div>
-        <div class="card-body">
-          <div class="card-meta">
-            <span class="article-category">Régulation</span>
-            <span class="article-date">Mois Année</span>
-          </div>
-          <h3>Titre de la note de veille n°4</h3>
-          <p>La régulation des infrastructures numériques est au cœur des enjeux actuels. Commentez ici une directive européenne, une loi, ou une décision institutionnelle récente.</p>
-          <div class="card-footer">
-            <a href="#" class="read-link">Lire la source <span>→</span></a>
-            <span style="font-size:12px; color:var(--muted);">5 min de lecture</span>
-          </div>
-        </div>
+  <section id="video">
+    <p class="section-label reveal">Présentation</p>
+    <div class="two-col" style="margin-top:0">
+      <div class="reveal">
+        <h2 style="font-family:'Cormorant Garamond',serif; font-size:36px; font-weight:300; margin-bottom:16px;">Vidéo de présentation du mémoire</h2>
+        <p style="font-size:14px; color:var(--muted); line-height:1.8; margin-bottom:24px;">Retrouvez ici la présentation orale de mon travail de recherche, exposant les problématiques, la méthodologie et les conclusions principales de l'étude.</p>
       </div>
-
+    </div>
+    <div class="video-wrap reveal">
+      <iframe src="https://www.youtube.com/embed/bvhtlnHSSOw" allowfullscreen></iframe>
     </div>
   </section>
 
-  <!-- SOURCES À SUIVRE -->
-  <section>
-    <p class="section-label reveal">Sources que je suis</p>
-    <p style="font-size:14px; color:var(--muted); margin-bottom:8px; max-width:560px;" class="reveal">
-      Médias, institutions et publications qui alimentent ma veille au quotidien.
-    </p>
-    <div class="sources-grid">
-      <a href="#" class="source-card reveal">
-        <span class="source-icon">📰</span>
-        <div><div class="source-name">Nom de la publication 1</div><div class="source-type">Presse spécialisée</div></div>
-      </a>
-      <a href="#" class="source-card reveal">
-        <span class="source-icon">🏛️</span>
-        <div><div class="source-name">Nom de l'institution 1</div><div class="source-type">Institution / Think-tank</div></div>
-      </a>
-      <a href="#" class="source-card reveal">
-        <span class="source-icon">🔬</span>
-        <div><div class="source-name">Revue académique</div><div class="source-type">Publication scientifique</div></div>
-      </a>
-      <a href="#" class="source-card reveal">
-        <span class="source-icon">🌐</span>
-        <div><div class="source-name">Blog / Newsletter tech</div><div class="source-type">Veille sectorielle</div></div>
-      </a>
-      <a href="#" class="source-card reveal">
-        <span class="source-icon">📡</span>
-        <div><div class="source-name">Agence spécialisée</div><div class="source-type">Actualité sectorielle</div></div>
-      </a>
-      <a href="#" class="source-card reveal">
-        <span class="source-icon">🏢</span>
-        <div><div class="source-name">Organisation internationale</div><div class="source-type">Rapports & études</div></div>
-      </a>
+  <section id="liens">
+    <p class="section-label reveal">Ressources</p>
+    <h2 style="font-family:'Cormorant Garamond',serif; font-size:36px; font-weight:300;" class="reveal">Liens &amp; références</h2>
+    <div class="links-list">
+      <a href="#" class="link-item reveal"><span class="link-title">Lien académique 1</span><span class="link-arrow">→</span></a>
+      <a href="#" class="link-item reveal"><span class="link-title">Lien académique 2</span><span class="link-arrow">→</span></a>
+      <a href="#" class="link-item reveal"><span class="link-title">Lien académique 3</span><span class="link-arrow">→</span></a>
     </div>
   </section>
 
@@ -296,22 +245,16 @@
 </footer>
 
 <script>
-  // Scroll reveal
   const reveals = document.querySelectorAll('.reveal');
-  const obs = new IntersectionObserver((entries) => {
+  const observer = new IntersectionObserver((entries) => {
     entries.forEach((e, i) => {
-      if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 70); obs.unobserve(e.target); }
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        observer.unobserve(e.target);
+      }
     });
-  }, { threshold: 0.08 });
-  reveals.forEach(el => obs.observe(el));
-
-  // Filtres (cosmétique pour l'instant — à connecter à une vraie logique si besoin)
-  document.querySelectorAll('.filter-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-    });
-  });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
 </script>
 </body>
 </html>
